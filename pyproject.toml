@@ -1,0 +1,15 @@
+[project]
+name = "vi-exercise"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "econml>=0.16.0",
+    "ipympl>=0.9.8",
+    "jupyter>=1.1.1",
+    "polars>=1.35.2",
+    "scikit-uplift>=0.5.1",
+    "seaborn>=0.13.2",
+    "scikit-learn<=1.4.2",  # scikit-uplift is not compatible with sklearn 1.5+
+]
