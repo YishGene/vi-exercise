@@ -78,9 +78,17 @@ def write_report(out_dir: str, eval_df: pl.DataFrame):
     
     # results csv
     # ----------------------------------
-    results_csv_path = out_path / 'results.csv'
-    eval_df.write_csv(results_csv_path)
-    logger.info(f"Results saved to {results_csv_path}")
+    top_n_csv_path = out_path / '.csv'
+    logger.info(f"Results saved to {top_n_csv_path}")
+    
+    results_top_n = eval_df.clone()
+
+    results_top_n = results_top_n.rename({'te': 'prioritization_score'})
+    results_top_n = results_top_n.sort(by='prioritization_score', descending=True)
+    results_top_n = results_top_n.with_columns(pl.int_range(1, results_top_n.height + 1).alias('rank'))
+
+    results_top_n = results_top_n[['member_id', 'prioritization_score', 'rank']]
+    results_top_n.write_csv(top_n_csv_path)
     
     # qini curve
     # ----------------------------------
