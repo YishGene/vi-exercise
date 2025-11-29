@@ -13,4 +13,4 @@ After uv is successully installed create the env at `.venv` with:
 `.venv/bin/python main.py --data-folder path/to/data/folder --output-folder path/to/output/folder`
 
 ### 3. Results
-Results will be figures and reports in the `train` and `test` subfolders in the output-folder
+Results will be figures and reports in the `train` and `test` subfolders in the output-folder, including the top_n.csv with the prioritization scores 
