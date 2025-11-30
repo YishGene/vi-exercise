@@ -97,6 +97,7 @@ def write_report(out_dir: str, eval_df: pl.DataFrame):
                 uplift=eval_df['te'],
                 treatment=eval_df['outreach'],
                 )
+    plt.legend(loc='upper right')
     plt.savefig(out_path / 'qini_curve.png')
     plt.close()
     logger.info(f"Qini curve saved to {out_path / 'qini_curve.png'}")
