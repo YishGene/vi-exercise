@@ -28,6 +28,12 @@ The flow of the code is:
 4. Evaluation and output
 
 Some explanations: 
+### 1. Data ingestion
+Each csv has its own routine with various filtrations. 
+
+Web visits - I dropped the description and the url, there are 26 unique sites and I chose events belonging only to the relevant domains from this list of sites. 
+
+All dates were converted to timestamps, then filtered by the observation window (this is a safety precation for new data sources - all the data were within the observation window). Null values were dropped. 
 
 ### 2. Featurization
 Features are an aggregation per member_id of different events. Aggregations are:
@@ -43,6 +49,8 @@ In the Claims csv, I tried:
 - filtered on the claims that are on the client brief (E11.9, I10, and Z71.3). 
  
 In the end the best result was on the aggregated all claims together. 
+
+Merging together, some member_ids had no inputs for some of the data - theses were filled according to relevant information (e.g., counts filled with 0)
 
 ### 3. CATE model
 
