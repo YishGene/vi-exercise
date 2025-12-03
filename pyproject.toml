@@ -11,5 +11,8 @@ dependencies = [
     "polars>=1.35.2",
     "scikit-uplift>=0.5.1",
     "seaborn>=0.13.2",
-    "scikit-learn<=1.4.2",  # scikit-uplift is not compatible with sklearn 1.5+
+    "scikit-learn<=1.4.2", # scikit-uplift is not compatible with sklearn 1.5+
+    "lifelines>=0.30.0",
+    "pandas>=2.3.3",
+    "pyarrow>=22.0.0",
 ]
